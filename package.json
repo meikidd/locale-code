@@ -1,0 +1,31 @@
+{
+  "name": "locale-code",
+  "version": "0.1.0",
+  "description": "locale code based on iso-639-1 and iso-3166-1",
+  "main": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meikidd/locale-util.git"
+  },
+  "keywords": [
+    "locale",
+    "i18n",
+    "language"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir build"
+  },
+  "author": "meikidd <meikidd@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meikidd/locale-util/issues"
+  },
+  "homepage": "https://github.com/meikidd/locale-util#readme",
+  "dependencies": {
+    "iso-3166-1-alpha-2": "~1.0.0",
+    "iso-639-1": "~0.1.0"
+  },
+  "devDependencies": {
+    "babel": "~5.8.12"
+  }
+}
