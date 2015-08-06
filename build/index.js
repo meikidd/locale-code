@@ -10,10 +10,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _objectAssign = require('object-assign');
-
-var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
 var _iso6391 = require('iso-639-1');
 
 var _iso63912 = _interopRequireDefault(_iso6391);
@@ -31,6 +27,8 @@ var LocaleCode = (function () {
 
   _createClass(LocaleCode, null, [{
     key: 'getLanguageCode',
+
+    /* language iso-639-1 */
     value: function getLanguageCode(code) {
       if (!LocaleCode.validate(code)) return '';
 
@@ -50,7 +48,14 @@ var LocaleCode = (function () {
       return _iso63912['default'].getNativeName(languageCode);
     }
   }, {
+    key: 'validateLanguageCode',
+    value: function validateLanguageCode(code) {
+      return _iso63912['default'].validate(code);
+    }
+  }, {
     key: 'getCountryCode',
+
+    /* country iso-3166-1-alpha-2 */
     value: function getCountryCode(code) {
       if (!LocaleCode.validate(code)) return '';
 
@@ -64,27 +69,24 @@ var LocaleCode = (function () {
       return _iso31661Alpha22['default'].getCountry(countryCode);
     }
   }, {
-    key: 'validate',
-    value: function validate(code) {
-      var match = code.match(REG);
-      if (match && match.length === 3 && LocaleCode.validateLanguageCode(match[1]) && LocaleCode.validateCountryCode(match[2])) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }, {
-    key: 'validateLanguageCode',
-    value: function validateLanguageCode(code) {
-      return _iso63912['default'].validate(code);
-    }
-  }, {
     key: 'validateCountryCode',
     value: function validateCountryCode(code) {
       if (_iso31661Alpha22['default'].getCodes().indexOf(code) === -1) {
         return false;
       } else {
         return true;
+      }
+    }
+  }, {
+    key: 'validate',
+
+    /* validate */
+    value: function validate(code) {
+      var match = code.match(REG);
+      if (match && match.length === 3 && LocaleCode.validateLanguageCode(match[1]) && LocaleCode.validateCountryCode(match[2])) {
+        return true;
+      } else {
+        return false;
       }
     }
   }]);
