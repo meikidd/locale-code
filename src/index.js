@@ -11,7 +11,7 @@ export default class LocaleCode {
     var match = code.match(REG)
     return match[1]
   }
-  static getLanguage(code) {
+  static getLanguageName(code) {
     var languageCode = LocaleCode.getLanguageCode(code)
     return LanguageCode.getName(languageCode)
   }
@@ -22,6 +22,17 @@ export default class LocaleCode {
   static validateLanguageCode(code) {
     return LanguageCode.validate(code)
   }
+  static getLanguages(codes) {
+    var list = []
+    for (var i = 0; i < codes.length; i++) {
+      list.push({
+        code:codes[i], 
+        name: getLanguageName(codes[i]),
+        nativeName: getLanguageNativeName(codes[i])
+      })
+    }
+    return list
+  }
 
   /* country iso-3166-1-alpha-2 */
   static getCountryCode(code) {
@@ -30,7 +41,7 @@ export default class LocaleCode {
     var match = code.match(REG)
     return match[2]
   }
-  static getCountry(code) {
+  static getCountryName(code) {
     var countryCode = LocaleCode.getCountryCode(code)
     return CountryCode.getCountry(countryCode)
   }

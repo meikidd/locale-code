@@ -36,8 +36,8 @@ var LocaleCode = (function () {
       return match[1];
     }
   }, {
-    key: 'getLanguage',
-    value: function getLanguage(code) {
+    key: 'getLanguageName',
+    value: function getLanguageName(code) {
       var languageCode = LocaleCode.getLanguageCode(code);
       return _iso63912['default'].getName(languageCode);
     }
@@ -53,6 +53,19 @@ var LocaleCode = (function () {
       return _iso63912['default'].validate(code);
     }
   }, {
+    key: 'getLanguages',
+    value: function getLanguages(codes) {
+      var list = [];
+      for (var i = 0; i < codes.length; i++) {
+        list.push({
+          code: codes[i],
+          name: getLanguageName(codes[i]),
+          nativeName: getLanguageNativeName(codes[i])
+        });
+      }
+      return list;
+    }
+  }, {
     key: 'getCountryCode',
 
     /* country iso-3166-1-alpha-2 */
@@ -63,8 +76,8 @@ var LocaleCode = (function () {
       return match[2];
     }
   }, {
-    key: 'getCountry',
-    value: function getCountry(code) {
+    key: 'getCountryName',
+    value: function getCountryName(code) {
       var countryCode = LocaleCode.getCountryCode(code);
       return _iso31661Alpha22['default'].getCountry(countryCode);
     }
