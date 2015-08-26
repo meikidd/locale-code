@@ -1,6 +1,6 @@
 {
   "name": "locale-code",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "locale code based on iso-639-1 and iso-3166-1",
   "main": "build/index.js",
   "repository": {
