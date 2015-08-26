@@ -50,7 +50,8 @@ var LocaleCode = (function () {
   }, {
     key: 'validateLanguageCode',
     value: function validateLanguageCode(code) {
-      return _iso63912['default'].validate(code);
+      var languageCode = LocaleCode.getLanguageCode(code);
+      return _iso63912['default'].validate(languageCode);
     }
   }, {
     key: 'getLanguages',
@@ -84,6 +85,7 @@ var LocaleCode = (function () {
   }, {
     key: 'validateCountryCode',
     value: function validateCountryCode(code) {
+      code = LocaleCode.getCountryCode(code);
       if (_iso31661Alpha22['default'].getCodes().indexOf(code) === -1) {
         return false;
       } else {
