@@ -59,8 +59,8 @@ var LocaleCode = (function () {
       for (var i = 0; i < codes.length; i++) {
         list.push({
           code: codes[i],
-          name: getLanguageName(codes[i]),
-          nativeName: getLanguageNativeName(codes[i])
+          name: LocaleCode.getLanguageName(codes[i]),
+          nativeName: LocaleCode.getLanguageNativeName(codes[i])
         });
       }
       return list;

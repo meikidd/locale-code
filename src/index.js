@@ -11,24 +11,29 @@ export default class LocaleCode {
     var match = code.match(REG)
     return match[1]
   }
+
   static getLanguageName(code) {
     var languageCode = LocaleCode.getLanguageCode(code)
     return LanguageCode.getName(languageCode)
   }
+
   static getLanguageNativeName(code) {
     var languageCode = LocaleCode.getLanguageCode(code)
     return LanguageCode.getNativeName(languageCode)
   }
+
   static validateLanguageCode(code) {
-    return LanguageCode.validate(code)
+    var languageCode = LocaleCode.getLanguageCode(code)
+    return LanguageCode.validate(languageCode)
   }
+
   static getLanguages(codes) {
     var list = []
     for (var i = 0; i < codes.length; i++) {
       list.push({
         code:codes[i], 
-        name: getLanguageName(codes[i]),
-        nativeName: getLanguageNativeName(codes[i])
+        name: LocaleCode.getLanguageName(codes[i]),
+        nativeName: LocaleCode.getLanguageNativeName(codes[i])
       })
     }
     return list
@@ -46,6 +51,7 @@ export default class LocaleCode {
     return CountryCode.getCountry(countryCode)
   }
   static validateCountryCode(code) {
+    code = LocaleCode.getCountryCode(code)
     if(CountryCode.getCodes().indexOf(code) === -1) {
       return false
     } else {
