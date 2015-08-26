@@ -30,9 +30,8 @@ var LocaleCode = (function () {
 
     /* language iso-639-1 */
     value: function getLanguageCode(code) {
-      if (!LocaleCode.validate(code)) return '';
-
       var match = code.match(REG);
+      if (!match || match.length < 1) return '';
       return match[1];
     }
   }, {
@@ -50,7 +49,9 @@ var LocaleCode = (function () {
   }, {
     key: 'validateLanguageCode',
     value: function validateLanguageCode(code) {
+      console.log(code);
       var languageCode = LocaleCode.getLanguageCode(code);
+      console.log(languageCode);
       return _iso63912['default'].validate(languageCode);
     }
   }, {
@@ -66,14 +67,13 @@ var LocaleCode = (function () {
       }
       return list;
     }
-  }, {
-    key: 'getCountryCode',
 
     /* country iso-3166-1-alpha-2 */
+  }, {
+    key: 'getCountryCode',
     value: function getCountryCode(code) {
-      if (!LocaleCode.validate(code)) return '';
-
       var match = code.match(REG);
+      if (!match || match.length < 2) return '';
       return match[2];
     }
   }, {
@@ -85,20 +85,24 @@ var LocaleCode = (function () {
   }, {
     key: 'validateCountryCode',
     value: function validateCountryCode(code) {
+      console.log(code);
       code = LocaleCode.getCountryCode(code);
+      console.log(code);
       if (_iso31661Alpha22['default'].getCodes().indexOf(code) === -1) {
         return false;
       } else {
         return true;
       }
     }
-  }, {
-    key: 'validate',
 
     /* validate */
+  }, {
+    key: 'validate',
     value: function validate(code) {
+      console.log(code);
       var match = code.match(REG);
-      if (match && match.length === 3 && LocaleCode.validateLanguageCode(match[1]) && LocaleCode.validateCountryCode(match[2])) {
+      console.log(match);
+      if (match && match.length === 3 && LocaleCode.validateLanguageCode(code) && LocaleCode.validateCountryCode(code)) {
         return true;
       } else {
         return false;

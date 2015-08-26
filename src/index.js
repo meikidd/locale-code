@@ -6,9 +6,8 @@ const REG = /^([a-z]{2})-([A-Z]{2})$/
 export default class LocaleCode {
   /* language iso-639-1 */
   static getLanguageCode(code) {
-    if(!LocaleCode.validate(code)) return ''
-
     var match = code.match(REG)
+    if(!match || match.length < 1) return ''
     return match[1]
   }
 
@@ -23,7 +22,9 @@ export default class LocaleCode {
   }
 
   static validateLanguageCode(code) {
+    console.log(code)
     var languageCode = LocaleCode.getLanguageCode(code)
+    console.log(languageCode)
     return LanguageCode.validate(languageCode)
   }
 
@@ -41,9 +42,8 @@ export default class LocaleCode {
 
   /* country iso-3166-1-alpha-2 */
   static getCountryCode(code) {
-    if(!LocaleCode.validate(code)) return ''
-
     var match = code.match(REG)
+    if(!match || match.length < 2) return ''
     return match[2]
   }
   static getCountryName(code) {
@@ -51,7 +51,9 @@ export default class LocaleCode {
     return CountryCode.getCountry(countryCode)
   }
   static validateCountryCode(code) {
+    console.log(code)
     code = LocaleCode.getCountryCode(code)
+    console.log(code)
     if(CountryCode.getCodes().indexOf(code) === -1) {
       return false
     } else {
@@ -61,10 +63,12 @@ export default class LocaleCode {
 
   /* validate */
   static validate(code) {
+    console.log(code)
     var match = code.match(REG)
+    console.log(match)
     if(match && match.length === 3 && 
-      LocaleCode.validateLanguageCode(match[1]) &&
-      LocaleCode.validateCountryCode(match[2])) {
+      LocaleCode.validateLanguageCode(code) &&
+      LocaleCode.validateCountryCode(code)) {
       return true
     } else {
       return false
