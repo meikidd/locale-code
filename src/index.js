@@ -22,9 +22,7 @@ export default class LocaleCode {
   }
 
   static validateLanguageCode(code) {
-    console.log(code)
     var languageCode = LocaleCode.getLanguageCode(code)
-    console.log(languageCode)
     return LanguageCode.validate(languageCode)
   }
 
@@ -51,9 +49,7 @@ export default class LocaleCode {
     return CountryCode.getCountry(countryCode)
   }
   static validateCountryCode(code) {
-    console.log(code)
     code = LocaleCode.getCountryCode(code)
-    console.log(code)
     if(CountryCode.getCodes().indexOf(code) === -1) {
       return false
     } else {
@@ -63,9 +59,7 @@ export default class LocaleCode {
 
   /* validate */
   static validate(code) {
-    console.log(code)
     var match = code.match(REG)
-    console.log(match)
     if(match && match.length === 3 && 
       LocaleCode.validateLanguageCode(code) &&
       LocaleCode.validateCountryCode(code)) {
