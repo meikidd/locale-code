@@ -98,6 +98,6 @@ console.log(LocaleCode.validate('en-US')); // true
 
 console.log(LocaleCode.validate('en_US')); // false
 
-console.log(LocaleCode.validate('bb-ZZ')); // false
+console.log(LocaleCode.validate('bb-XX')); // false
 
 ```
