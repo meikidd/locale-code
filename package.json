@@ -13,7 +13,8 @@
     "language"
   ],
   "scripts": {
-    "build": "babel src --out-dir build"
+    "build": "babel src --out-dir build",
+    "test": "mocha"
   },
   "author": "meikidd <meikidd@gmail.com>",
   "license": "MIT",
@@ -26,6 +27,7 @@
     "iso-639-1": "~1.0.0"
   },
   "devDependencies": {
-    "babel": "~5.8.12"
+    "babel": "~5.8.12",
+    "mocha": "*"
   }
 }
