@@ -1,4 +1,4 @@
-import LanguageCode from 'iso-639-1'
+import LanguageCode from 'iso-639-1-zh'
 import CountryCode from 'iso-3166-1-alpha-2'
 
 const REG = /^([a-z]{2})-([A-Z]{2})$/

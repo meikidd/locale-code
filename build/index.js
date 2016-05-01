@@ -10,9 +10,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _iso6391 = require('iso-639-1');
+var _iso6391Zh = require('iso-639-1-zh');
 
-var _iso63912 = _interopRequireDefault(_iso6391);
+var _iso6391Zh2 = _interopRequireDefault(_iso6391Zh);
 
 var _iso31661Alpha2 = require('iso-3166-1-alpha-2');
 
@@ -38,19 +38,19 @@ var LocaleCode = (function () {
     key: 'getLanguageName',
     value: function getLanguageName(code) {
       var languageCode = LocaleCode.getLanguageCode(code);
-      return _iso63912['default'].getName(languageCode);
+      return _iso6391Zh2['default'].getName(languageCode);
     }
   }, {
     key: 'getLanguageNativeName',
     value: function getLanguageNativeName(code) {
       var languageCode = LocaleCode.getLanguageCode(code);
-      return _iso63912['default'].getNativeName(languageCode);
+      return _iso6391Zh2['default'].getNativeName(languageCode);
     }
   }, {
     key: 'validateLanguageCode',
     value: function validateLanguageCode(code) {
       var languageCode = LocaleCode.getLanguageCode(code);
-      return _iso63912['default'].validate(languageCode);
+      return _iso6391Zh2['default'].validate(languageCode);
     }
   }, {
     key: 'getLanguages',
