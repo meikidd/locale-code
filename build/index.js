@@ -47,6 +47,12 @@ var LocaleCode = (function () {
       return _iso6391Zh2['default'].getNativeName(languageCode);
     }
   }, {
+    key: 'getLanguageZhName',
+    value: function getLanguageZhName(code) {
+      var languageCode = LocaleCode.getLanguageCode(code);
+      return _iso6391Zh2['default'].getZhName(languageCode);
+    }
+  }, {
     key: 'validateLanguageCode',
     value: function validateLanguageCode(code) {
       var languageCode = LocaleCode.getLanguageCode(code);
@@ -60,7 +66,8 @@ var LocaleCode = (function () {
         list.push({
           code: codes[i],
           name: LocaleCode.getLanguageName(codes[i]),
-          nativeName: LocaleCode.getLanguageNativeName(codes[i])
+          nativeName: LocaleCode.getLanguageNativeName(codes[i]),
+          zhName: LocaleCode.getLanguageZhName(codes[i])
         });
       }
       return list;

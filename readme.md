@@ -78,12 +78,14 @@ console.log(LocaleCode.getLanguageName('zh-CN')); // 'Chinese'
 
 console.log(LocaleCode.getLanguageNativeName('zh-CN')); // '中文'
 
+console.log(LocaleCode.getLanguageZhName('es-ES')); // '西班牙语'
+
 console.log(LocaleCode.validateLanguageCode('en-US')); // true
 
 console.log(LocaleCode.validateLanguageCode('bb-US')); // false
 
 console.log(LocaleCode.getLanguages(['en-US','zh-CN'])); 
-// [{code:'en-US', name:'English', nativeName:'English'}, {code:'zh-CN', name:'Chinese', nativeName:'中文'}]
+// [{code:'en-US', name:'English', nativeName:'English', zhName:'英语'}, {code:'zh-CN', name:'Chinese', nativeName:'中文', zhName:'中文'}]
 
 
 console.log(LocaleCode.getCountryCode('en-US')); // 'US'

@@ -29,9 +29,18 @@ describe('getLanguageNativeName()', function() {
   })
 })
 
+describe('getLanguageZhName()', function() {
+  it('en-US', function(){
+    assert.equal(LocaleCode.getLanguageZhName('en-US'), '英语')
+  })
+  it('zh-CN', function(){
+    assert.equal(LocaleCode.getLanguageZhName('zh-CN'), '中文')
+  })
+})
+
 describe('getLanguages()', function() {
   it('[en-US,zh-CN]', function(){
-    assert.deepEqual(LocaleCode.getLanguages(['en-US','zh-CN']), [{code:'en-US', name:'English', nativeName:'English'}, {code:'zh-CN', name:'Chinese', nativeName:'中文'}])
+    assert.deepEqual(LocaleCode.getLanguages(['en-US','zh-CN']), [{code:'en-US', name:'English', nativeName:'English', zhName:'英语'}, {code:'zh-CN', name:'Chinese', nativeName:'中文', zhName:'中文'}])
   })
 })
 

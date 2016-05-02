@@ -21,6 +21,11 @@ export default class LocaleCode {
     return LanguageCode.getNativeName(languageCode)
   }
 
+  static getLanguageZhName(code) {
+    var languageCode = LocaleCode.getLanguageCode(code)
+    return LanguageCode.getZhName(languageCode)
+  }
+
   static validateLanguageCode(code) {
     var languageCode = LocaleCode.getLanguageCode(code)
     return LanguageCode.validate(languageCode)
@@ -32,7 +37,8 @@ export default class LocaleCode {
       list.push({
         code:codes[i], 
         name: LocaleCode.getLanguageName(codes[i]),
-        nativeName: LocaleCode.getLanguageNativeName(codes[i])
+        nativeName: LocaleCode.getLanguageNativeName(codes[i]),
+        zhName: LocaleCode.getLanguageZhName(codes[i])
       })
     }
     return list
