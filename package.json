@@ -24,7 +24,7 @@
   "homepage": "https://github.com/meikidd/locale-code#readme",
   "dependencies": {
     "iso-3166-1-alpha-2": "~1.0.0",
-    "iso-639-1-zh": "^1.0.1"
+    "iso-639-1-zh": "^1.0.4"
   },
   "devDependencies": {
     "babel": "~5.8.12",
