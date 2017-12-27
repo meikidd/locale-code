@@ -2,12 +2,16 @@ import LanguageCode from 'iso-639-1-zh'
 import CountryCode from 'iso-3166-1-alpha-2'
 
 const REG = /^([a-z]{2})-([A-Z]{2})$/
+const REG_LAN = /^([a-z]{2})$/
 
 export default class LocaleCode {
   /* language iso-639-1 */
   static getLanguageCode(code) {
     var match = code.match(REG)
-    if(!match || match.length < 1) return ''
+    if(!match || match.length < 1) {
+      match = code.match(REG_LAN)
+      if (!match || match.length < 1) return ''
+    }
     return match[1]
   }
 
@@ -35,7 +39,7 @@ export default class LocaleCode {
     var list = []
     for (var i = 0; i < codes.length; i++) {
       list.push({
-        code:codes[i], 
+        code:codes[i],
         name: LocaleCode.getLanguageName(codes[i]),
         nativeName: LocaleCode.getLanguageNativeName(codes[i]),
         zhName: LocaleCode.getLanguageZhName(codes[i])
@@ -47,16 +51,17 @@ export default class LocaleCode {
   /* country iso-3166-1-alpha-2 */
   static getCountryCode(code) {
     var match = code.match(REG)
-    if(!match || match.length < 2) return ''
+    if(!match || match.length < 2) return null
     return match[2]
   }
   static getCountryName(code) {
     var countryCode = LocaleCode.getCountryCode(code)
+    if (!countryCode) return null
     return CountryCode.getCountry(countryCode)
   }
   static validateCountryCode(code) {
     code = LocaleCode.getCountryCode(code)
-    if(CountryCode.getCodes().indexOf(code) === -1) {
+    if(!code || CountryCode.getCodes().indexOf(code) === -1) {
       return false
     } else {
       return true
@@ -66,9 +71,11 @@ export default class LocaleCode {
   /* validate */
   static validate(code) {
     var match = code.match(REG)
-    if(match && match.length === 3 && 
+    if(match && match.length === 3 &&
       LocaleCode.validateLanguageCode(code) &&
       LocaleCode.validateCountryCode(code)) {
+      return true
+    } if(code.match(REG_LAN) && code.match(REG_LAN).length === 2 && LanguageCode.validate(code)) {
       return true
     } else {
       return false
