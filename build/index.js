@@ -19,6 +19,7 @@ var _iso31661Alpha2 = require('iso-3166-1-alpha-2');
 var _iso31661Alpha22 = _interopRequireDefault(_iso31661Alpha2);
 
 var REG = /^([a-z]{2})-([A-Z]{2})$/;
+var REG_LAN = /^([a-z]{2})$/;
 
 var LocaleCode = (function () {
   function LocaleCode() {
@@ -31,7 +32,10 @@ var LocaleCode = (function () {
     /* language iso-639-1 */
     value: function getLanguageCode(code) {
       var match = code.match(REG);
-      if (!match || match.length < 1) return '';
+      if (!match || match.length < 1) {
+        match = code.match(REG_LAN);
+        if (!match || match.length < 1) return '';
+      }
       return match[1];
     }
   }, {
@@ -78,20 +82,21 @@ var LocaleCode = (function () {
     key: 'getCountryCode',
     value: function getCountryCode(code) {
       var match = code.match(REG);
-      if (!match || match.length < 2) return '';
+      if (!match || match.length < 2) return null;
       return match[2];
     }
   }, {
     key: 'getCountryName',
     value: function getCountryName(code) {
       var countryCode = LocaleCode.getCountryCode(code);
+      if (!countryCode) return null;
       return _iso31661Alpha22['default'].getCountry(countryCode);
     }
   }, {
     key: 'validateCountryCode',
     value: function validateCountryCode(code) {
       code = LocaleCode.getCountryCode(code);
-      if (_iso31661Alpha22['default'].getCodes().indexOf(code) === -1) {
+      if (!code || _iso31661Alpha22['default'].getCodes().indexOf(code) === -1) {
         return false;
       } else {
         return true;
@@ -104,6 +109,8 @@ var LocaleCode = (function () {
     value: function validate(code) {
       var match = code.match(REG);
       if (match && match.length === 3 && LocaleCode.validateLanguageCode(code) && LocaleCode.validateCountryCode(code)) {
+        return true;
+      }if (code.match(REG_LAN) && code.match(REG_LAN).length === 2 && _iso6391Zh2['default'].validate(code)) {
         return true;
       } else {
         return false;
