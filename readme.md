@@ -1,4 +1,14 @@
 # locale-code
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Download Count][download-url]][npm-url]
+
+[travis-image]: https://travis-ci.org/meikidd/locale-code.svg?branch=master
+[travis-url]: https://travis-ci.org/meikidd/locale-code
+[npm-image]: https://img.shields.io/npm/v/locale-code.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/locale-code
+[download-url]: https://img.shields.io/npm/dt/locale-code.svg?style=flat-square
+
 Simple interface for [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language codes and [ISO-3166-1-alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country codes.
 
 ## Install
