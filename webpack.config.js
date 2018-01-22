@@ -11,14 +11,14 @@ let webpackConfig = {
     path: path.resolve(__dirname, `./build`), // 输出路径
     filename: '[name].js', // js 文件路径
     library: 'LocaleCode',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   devtool: 'cheap-source-map',
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [path.resolve(__dirname, 'node_modules')],
         use: {
           loader: 'babel-loader',
           options: {
