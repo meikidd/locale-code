@@ -1754,9 +1754,9 @@ iso-3166-1-alpha-2@~1.0.0:
   dependencies:
     mout "^0.11.0"
 
-iso-639-1-zh@^2.0.3:
-  version "2.0.3"
-  resolved "http://registry.npm.taobao.org/iso-639-1-zh/download/iso-639-1-zh-2.0.3.tgz#fc3b2b294bfe590353b167928e21ddfb3e747148"
+iso-639-1-zh@^2.0.4:
+  version "2.0.4"
+  resolved "http://registry.npm.taobao.org/iso-639-1-zh/download/iso-639-1-zh-2.0.4.tgz#61b577d14ee8b0c2c8e73697a3c894fe02dbd541"
   dependencies:
     iso-639-1 "^2.0.0"
 
@@ -2516,8 +2516,8 @@ setimmediate@^1.0.4:
   resolved "http://registry.npm.taobao.org/setimmediate/download/setimmediate-1.0.5.tgz#290cbb232e306942d7d7ea9b83732ab7856f8285"
 
 sha.js@^2.4.0, sha.js@^2.4.8:
-  version "2.4.9"
-  resolved "http://registry.npm.taobao.org/sha.js/download/sha.js-2.4.9.tgz#98f64880474b74f4a38b8da9d3c0f2d104633e7d"
+  version "2.4.10"
+  resolved "http://registry.npm.taobao.org/sha.js/download/sha.js-2.4.10.tgz#b1fde5cd7d11a5626638a07c604ab909cfa31f9b"
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
