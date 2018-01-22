@@ -939,11 +939,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 class ISO6391ZH extends __WEBPACK_IMPORTED_MODULE_0_iso_639_1__["a" /* default */] {
   static getLanguages(codes) {
-    return super.getLanguages(codes).map(language =>
+    return super.getLanguages(codes).map(language => {
       Object.assign(language, {
         zhName: ISO6391ZH.getZhName(language.code),
-      }),
-    );
+      });
+      return language;
+    });
   }
 
   static getZhName(code) {
