@@ -1,6 +1,6 @@
 {
   "name": "locale-code",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "locale code based on iso-639-1 and iso-3166-1",
   "main": "build/index.js",
   "module": "src/index.js",
